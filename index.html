@@ -1979,6 +1979,35 @@
                                 required="">
                         </div>
                         <div class="form-group">
+                            <label for="idade">Idade</label>
+                            <input type="number" id="idade" class="form-control" placeholder="Ex: 30" required=""
+                                min="18" max="120">
+                        </div>
+                        <div class="form-group">
+                            <label for="renda">Renda Familiar (R$)</label>
+                            <input type="number" id="renda" class="form-control" placeholder="Ex: 3000.00" step="0.01"
+                                required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="escolaridade">Escolaridade</label>
+                            <select id="escolaridade" class="form-control" required="">
+                                <option value="" disabled selected>Selecione a escolaridade</option>
+                                <option value="Fundamental">Fundamental</option>
+                                <option value="Médio">Médio</option>
+                                <option value="Técnico">Técnico</option>
+                                <option value="Superior">Superior</option>
+                                <option value="Pós-graduação">Pós-graduação</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tem_negocio">Tem Negócio Próprio?</label>
+                            <select id="tem_negocio" class="form-control" required="">
+                                <option value="" disabled selected>Selecione...</option>
+                                <option value="1">Sim</option>
+                                <option value="0">Não</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="negocio">Qual negócio deseja iniciar ou expandir?</label>
                             <textarea id="negocio" class="form-control" rows="3"
                                 placeholder="Conte um pouco sobre seu projeto"></textarea>
@@ -2394,11 +2423,11 @@
                 // Coletar dados do formulário
                 const formData = {
                     nome: document.getElementById('nome').value,
-                    idade: Math.floor(Math.random() * (60 - 18 + 1)) + 18, // Simulado
-                    renda_familiar: Math.random() * (5000 - 1000) + 1000, // Simulado
-                    regiao: "Zona Norte", // Simulado
-                    escolaridade: "Médio", // Simulado
-                    tem_negocio_proprio: true // Simulado
+                    idade: document.getElementById('idade').value,
+                    renda_familiar: document.getElementById('renda').value,
+                    regiao: document.getElementById('bairro').value || "Zona Norte", // Usa o bairro ou validacao padrao
+                    escolaridade: document.getElementById('escolaridade').value,
+                    tem_negocio_proprio: document.getElementById('tem_negocio').value === '1'
                 };
 
                 try {
